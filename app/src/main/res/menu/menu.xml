@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/podcastsGridFragment"
+        android:icon="@drawable/ic_baseline_grid_on_24"
+        android:title="podcasts" />
+    <item
+        android:id="@+id/filtersFragment"
+        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:title="filters" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_baseline_person_outline_24"
+        android:title="profile" />
+</menu>

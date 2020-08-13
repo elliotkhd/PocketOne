@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PocketCasts</string>
+    <string name="current_episode_id">CurrentEpisodeId</string>
+    <string name="current_episode_play_status">CurrentEpisodeStatus</string>
+</resources>

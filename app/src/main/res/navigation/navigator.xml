@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigator"
+    app:startDestination="@id/podcastsGridFragment">
+
+    <fragment
+        android:id="@+id/podcastsGridFragment"
+        android:name="com.example.pocketcasts.ui.PodcastsGridFragment"
+        android:label="podcasts"
+        tools:layout="@layout/podcasts_grid_fragment" >
+        <action
+            android:id="@+id/action_podcastsGridFragment_to_podcastHomeFragment"
+            app:destination="@id/podcastHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filtersFragment"
+        android:name="com.example.pocketcasts.ui.FiltersFragment"
+        android:label="filters"
+        tools:layout="@layout/filters_fragment" >
+        <action
+            android:id="@+id/action_filtersFragment_to_podcastsListFragment"
+            app:destination="@id/podcastsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.pocketcasts.ui.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment" />
+    <fragment
+        android:id="@+id/podcastHomeFragment"
+        android:name="com.example.pocketcasts.ui.PodcastHomeFragment"
+        android:label="Podcast"
+        tools:layout="@layout/podcast_home_fragment">
+        <action
+            android:id="@+id/action_podcastHomeFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment" />
+        <action
+            android:id="@+id/action_podcastHomeFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.example.pocketcasts.ui.EpisodeDetailFragment"
+        android:label="Episode"
+        tools:layout="@layout/episode_detail_fragment" />
+    <fragment
+        android:id="@+id/podcastsListFragment"
+        android:name="com.example.pocketcasts.ui.PodcastsListFragment"
+        android:label="Episodes"
+        tools:layout="@layout/podcasts_list_fragment">
+        <action
+            android:id="@+id/action_podcastsListFragment_to_episodeDetailFragment"
+            app:destination="@id/episodeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.example.pocketcasts.ui.PlayerFragment"
+        android:label="player_fragment"
+        tools:layout="@layout/player_fragment" />
+</navigation>
