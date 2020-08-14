@@ -14,6 +14,7 @@ import com.example.pocketcasts.ui.MainActivity
 import com.example.pocketcasts.R
 import com.example.pocketcasts.data.PodcastWithEpisodes
 import com.example.pocketcasts.util.SPUtil
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.podcast_home_header.view.*
 import kotlinx.android.synthetic.main.podcast_home_normal.view.*
 import java.text.SimpleDateFormat
@@ -34,9 +35,22 @@ class HomeAdapter(
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView)
 
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        println("FilterAdapter.onAttachedToRecyclerView")
+        (context as MainActivity).apply {
+            mainPlayButton.setOnClickListener {
+                val tmpEpisode = getCurrentEpisode()
+                if (tmpEpisode != null) playButtonClicked(tmpEpisode)
+                notifyItemChanged(currentPlayedItem)
+            }
+        }
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         currentPlayedItem = getCurrentPlayedItem()
         pWithe.episodes.sortByDescending { it.timestamp }
+
         return if (viewType == NORMAL_VIEW_TYPE) {
             VH(
                 LayoutInflater.from(parent.context)

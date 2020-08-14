@@ -31,7 +31,6 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
     lateinit var musicController: MusicService.MusicController
     private var mBound = false
-    var homeItemNum = -1
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
             musicController = service as MusicService.MusicController
@@ -48,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (SPUtil.getInstance().getEpisodeId() == (-10).toLong())
             SPUtil.getInstance().saveEpisodeId(-1)
-//        SPUtil.getInstance().saveEpisodeId(0)
         SPUtil.getInstance().disablePlaying()
         Intent(this, MusicService::class.java).apply {
             bindService(this, connection, Context.BIND_AUTO_CREATE)
@@ -65,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         }
         mainPlayButton.setOnClickListener {
             val tmpEpisode = getCurrentEpisode()
-            println(tmpEpisode?.audioUrl)
             if (tmpEpisode != null) playButtonClicked(tmpEpisode)
         }
     }

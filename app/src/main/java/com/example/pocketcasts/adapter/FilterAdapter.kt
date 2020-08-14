@@ -16,6 +16,7 @@ import com.example.pocketcasts.data.MyDatabase
 import com.example.pocketcasts.ui.EpisodeDetailFragment
 import com.example.pocketcasts.ui.MainActivity
 import com.example.pocketcasts.util.SPUtil
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.paged_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +28,18 @@ class FilterAdapter(private val context: FragmentActivity) :
     private val dao = MyDatabase.getInstance().podcastDao()
 
     class VH(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
+        println("FilterAdapter.onAttachedToRecyclerView")
+        (context as MainActivity).apply {
+            mainPlayButton.setOnClickListener {
+                val tmpEpisode = getCurrentEpisode()
+                if (tmpEpisode != null) playButtonClicked(tmpEpisode)
+                notifyItemChanged(currentPlayedItem)
+            }
+        }
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         Log.d("bbbb", "viewholder")
