@@ -9,10 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.example.pocketcasts.ui.EpisodeDetailFragment
-import com.example.pocketcasts.ui.MainActivity
 import com.example.pocketcasts.R
 import com.example.pocketcasts.data.PodcastWithEpisodes
+import com.example.pocketcasts.ui.EpisodeDetailFragment
+import com.example.pocketcasts.ui.MainActivity
 import com.example.pocketcasts.util.SPUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.podcast_home_header.view.*
@@ -44,7 +44,6 @@ class HomeAdapter(
                 notifyItemChanged(currentPlayedItem)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
