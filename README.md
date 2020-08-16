@@ -1,0 +1,4 @@
+使用Jetpack组件，模仿Pocket Casts开发的播客App
+
+TODO
+使用Hilt改写一些逻辑
